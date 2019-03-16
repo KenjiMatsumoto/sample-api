@@ -2,7 +2,10 @@ package com.sample.sampleapi.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import lombok.Data;
 
@@ -22,4 +25,12 @@ public class Currency {
 
 	/** 数量 */
 	private BigDecimal amount;
+
+	public static Currency newCurrency(String name, String symbol) {
+		Currency result = new Currency();
+		result.name = name;
+		result.symbol = symbol;
+		result.amount = BigDecimal.ZERO;
+		return result;
+	}
 }
